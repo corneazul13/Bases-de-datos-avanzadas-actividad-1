@@ -1,0 +1,66 @@
+use TorneoFutbolDB;
+
+// Colección de Equipos
+db.equipos.insertMany([
+  { nombre: "Equipo1", jugadores: ["Jugador1", "Jugador2", "Jugador3"], plantilla: 14 },
+  { nombre: "Equipo2", jugadores: ["Jugador4", "Jugador5", "Jugador6"], plantilla: 12 },
+  { nombre: "Equipo3", jugadores: ["Jugador1", "Jugador2", "Jugador3"], plantilla: 14 },
+  { nombre: "Equipo4", jugadores: ["Jugador4", "Jugador5", "Jugador6"], plantilla: 12 },
+  { nombre: "Equipo5", jugadores: ["Jugador1", "Jugador2", "Jugador3"], plantilla: 14 },
+  { nombre: "Equipo6", jugadores: ["Jugador4", "Jugador5", "Jugador6"], plantilla: 12 },
+  { nombre: "Equipo7", jugadores: ["Jugador1", "Jugador2", "Jugador3"], plantilla: 14 },
+  { nombre: "Equipo8", jugadores: ["Jugador4", "Jugador5", "Jugador6"], plantilla: 12 },
+  { nombre: "Equipo9", jugadores: ["Jugador1", "Jugador2", "Jugador3"], plantilla: 14 },
+  { nombre: "Equipo10", jugadores: ["Jugador4", "Jugador5", "Jugador6"], plantilla: 12 },
+  { nombre: "Equipo11", jugadores: ["Jugador1", "Jugador2", "Jugador3"], plantilla: 14 },
+  { nombre: "Equipo12", jugadores: ["Jugador4", "Jugador5", "Jugador6"], plantilla: 12 },
+  
+  
+]);
+
+// Colección de Grupos
+db.grupos.insertMany([
+  { nombre: "GrupoA", equipos: ["Equipo1", "Equipo2", "Equipo3", "Equipo4"] },
+  { nombre: "GrupoB", equipos: ["Equipo5", "Equipo6", "Equipo7", "Equipo8"] },
+  { nombre: "GrupoC", equipos: ["Equipo9", "Equipo10", "Equipo11", "Equipo12"] },
+]);
+
+// Colección de Partidos
+db.partidos.insertMany([
+  { equipoLocal: "Equipo1", equipoVisitante: "Equipo2", resultado: "Ganado", golesLocal: 2, golesVisitante: 1 },
+  { equipoLocal: "Equipo3", equipoVisitante: "Equipo4", resultado: "Empate", golesLocal: 1, golesVisitante: 1 },
+  
+]);
+
+// Colección de Semifinales
+db.semifinales.insertMany([
+  { equipo1: "GanadorGrupoA", equipo2: "SegundoGrupoB", resultado: "Ganador" },
+  { equipo1: "GanadorGrupoB", equipo2: "SegundoGrupoA", resultado: "Ganador" },
+]);
+
+// Colección de Final
+db.final.insertMany([
+  { equipo1: "GanadorSemifinal1", equipo2: "GanadorSemifinal2", resultado: "Empate", tiempoExtra: true, definicionPenales: false },
+]);
+
+// Colección de Informes
+db.informes.insertMany([
+  { partido: "Partido1", informeArbitro: "Buen desarrollo del juego", informeEquipos: ["Equipo1", "Equipo2"] },
+  { partido: "Partido2", informeArbitro: "Tarjeta roja injusta", informeEquipos: ["Equipo3", "Equipo4"] },
+  
+]);
+
+// Colección de Premiación
+db.premiacion.insertMany([
+  { posicion: "Campeón", equipo: "GanadorFinal", trofeo: "TrofeoCampeón" },
+  { posicion: "Segundo Puesto", equipo: "PerdedorFinal", trofeo: "TrofeoSegundoPuesto" },
+]);
+
+// Verificación de los datos ingresados
+db.equipos.find().pretty();
+db.grupos.find().pretty();
+db.partidos.find().pretty();
+db.semifinales.find().pretty();
+db.final.find().pretty();
+db.informes.find().pretty();
+db.premiacion.find().pretty();
